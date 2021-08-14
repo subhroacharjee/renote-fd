@@ -51,3 +51,8 @@ export async function getUser () {
         return null;
     }
 }
+
+export async function getNotes () {
+    const data = [];
+    return data;
+}

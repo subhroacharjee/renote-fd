@@ -120,7 +120,7 @@ export default function Register (props) {
                         <TextField variant="outlined" type="password" label="Password" fullWidth value={password} onChange={event=>setPassword(event.currentTarget.value)} />
                     </Grid>
                     <Grid item>
-                        <Button variant="contained" color="primary" onClick={handleNormalRegister}>Login</Button>
+                        <Button variant="contained" color="primary" onClick={handleNormalRegister}>Register</Button>
                     </Grid>
                     <Grid item>
                         <Typography variant="body2" color="textSecondary" onClick = {handleRedirectToLogin}>Don't have and account? register</Typography>

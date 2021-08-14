@@ -23,6 +23,7 @@ export async function loginWithGoogle () {
 
    try {
       var idToken =await result.user.getIdToken();
+      console.log(idToken);
       try {
           const requestData = {
               idToken: idToken
