@@ -1,9 +1,10 @@
-import {makeStyles, Fab} from '@material-ui/core';
+import {makeStyles, Fab, Snackbar} from '@material-ui/core';
 import {Add as AddIcon} from '@material-ui/icons';
 import { useEffect, useState } from 'react';
 import * as functions from '../utils/functions';
 
 import Loader from '../components/Loader'
+import AddNote from '../components/addNote';
 
 const useStyles = makeStyles(theme=>({
     root: {
@@ -22,8 +23,10 @@ export default function Dashboard (props) {
     const [loading, setLoading] = useState(true);
     const [errorMsg, setErrorMsg] = useState();
     const [openErrorPrompt, setOpenErrorPrompt] = useState(false);
+    const [openCreateDialog, setOpenCreateDialog] = useState(false);
 
     useEffect(()=>{
+        document.title = 'Noted-Re: Dashboard'
         functions.getNotes()
             .then(result=>{
                 if (!result) {
@@ -43,6 +46,7 @@ export default function Dashboard (props) {
 
     const handleClickOnAdd = () =>{
         if (loading) return;
+        setOpenCreateDialog(true)
     }
 
     const renderNotes = ()=>{
@@ -57,11 +61,23 @@ export default function Dashboard (props) {
         }
     }
 
+    const handleAddNotes = (note) =>{
+        setNoteAr( [...noteAr,note])
+    }
+
     return (
         <div className={classes.root}>
             <Fab onClick={handleClickOnAdd} color="secondary" aria-label="add" className={classes.floatingBtn}>
                 <AddIcon />
             </Fab>
+            <Snackbar open={openErrorPrompt} onClose={(event, reason)=>{if(reason!=='clickaway') setOpenErrorPrompt(false)}}
+                anchorOrigin={{
+                    vertical: 'top',
+                    horizontal: 'center'
+                }} autoHideDuration={6000} message={errorMsg}/>
+            {openCreateDialog&&<AddNote open={openCreateDialog} 
+                closeHandler={()=>setOpenCreateDialog(false)} 
+                cb={handleAddNotes}/>}
             {renderNotes()}
         </div>
     );

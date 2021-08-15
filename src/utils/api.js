@@ -4,7 +4,8 @@ const pathURIS = {
     fbLogin:`${API_BASE_PATH}/auth/login/firebase`,
     register:`${API_BASE_PATH}/auth/register`,
     fbRegister:`${API_BASE_PATH}/auth/register/firebase`,
-    user:`${API_BASE_PATH}/auth/user`
+    user:`${API_BASE_PATH}/auth/user`,
+    notes: `${API_BASE_PATH}/notes`,
 };
 
 export default pathURIS
