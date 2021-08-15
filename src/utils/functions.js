@@ -52,6 +52,20 @@ export async function getUser () {
     }
 }
 
+export async function updatePassword(password, newPassword) {
+    const config = createHeaderObject();
+    try {
+        var {data} = await axios.post(api.changePassword,{
+            password,
+            newPassword
+        },config);
+        return data
+    } catch (error) {
+        console.log(error);
+    }
+    return null;
+}
+
 export async function getNotes () {
     var data = [];
     const config = createHeaderObject();
@@ -104,7 +118,7 @@ export async function updateNote (id, title, body) {
 
     try {
         const {data} = await axios.put(`${api.notes}/${id}`, note, config);
-        if (data.body) return data.body.notes;
+        if (data.body) return data.body.note;
     } catch (error) {
         console.log(error);
     }
@@ -116,7 +130,7 @@ export async function deleteNote (id) {
 
     try {
         const {data} = await axios.delete(`${api.notes}/${id}`,config);
-        if (data.body) return data.body.notes;
+        if (data.success) return true;
     } catch (error) {
         console.log(error);
     }

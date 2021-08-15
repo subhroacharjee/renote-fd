@@ -5,6 +5,8 @@ import * as functions from '../utils/functions';
 
 import Loader from '../components/Loader'
 import AddNote from '../components/addNote';
+import NoteList from '../components/noteList';
+
 
 const useStyles = makeStyles(theme=>({
     root: {
@@ -14,6 +16,11 @@ const useStyles = makeStyles(theme=>({
         position: 'fixed',
         bottom:10,
         right: 10
+    },
+    marginTop:{
+        marginTop: 10,
+        paddingLeft: 10,
+        maxWidth:'95vw'
     }
 }))
 
@@ -56,13 +63,15 @@ export default function Dashboard (props) {
             );
         }else{
             return (
-                <></>
+                <div className={classes.marginTop}>
+                    <NoteList notesAr={noteAr} setNotesAr={setNoteAr}/>
+                </div>
             );
         }
     }
 
     const handleAddNotes = (note) =>{
-        setNoteAr( [...noteAr,note])
+        setNoteAr( [note, ...noteAr,])
     }
 
     return (

@@ -6,6 +6,7 @@ const pathURIS = {
     fbRegister:`${API_BASE_PATH}/auth/register/firebase`,
     user:`${API_BASE_PATH}/auth/user`,
     notes: `${API_BASE_PATH}/notes`,
+    changePassword: `${API_BASE_PATH}/auth/change-password`
 };
 
 export default pathURIS

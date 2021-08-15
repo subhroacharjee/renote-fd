@@ -1,6 +1,7 @@
 import Dashboard from "../pages/Dashboard";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import Settings from "../pages/Settings";
 
 export const path = [
     {
@@ -21,6 +22,13 @@ export const path = [
         name:'Dashboard',
         path: '/',
         component: Dashboard,
+        auth: true
+    },
+    
+    {
+        name:'Settings',
+        path: '/settings',
+        component: Settings,
         auth: true
     }
 ];
