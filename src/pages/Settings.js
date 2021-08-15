@@ -56,7 +56,7 @@ export default function Settings (){
                             />
                     </Grid>
                     <Grid item>
-                        <Button variant='contained' onClick={updateHandler}>Update</Button>
+                        <Button variant='contained' onClick={updateHandler} disabled={loading}>Update</Button>
                     </Grid>
                 </Grid>
             </Paper>

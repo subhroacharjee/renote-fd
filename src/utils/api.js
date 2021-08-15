@@ -1,4 +1,4 @@
-export const API_BASE_PATH = 'http://localhost:8080/api/v1'
+export const API_BASE_PATH = 'https://notere.herokuapp.com/api/v1'
 const pathURIS = {
     login:`${API_BASE_PATH}/auth/login`,
     fbLogin:`${API_BASE_PATH}/auth/login/firebase`,
